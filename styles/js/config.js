@@ -15,9 +15,9 @@ let charadex = {};
 /* Any preview links will still show Charadex's information
 /* ==================================================================== */
 charadex.site = {
-  title: "mvseratii's HARPG-dex",
+  title: "mvseratii's Horsedex",
   url: "https://mvseratii.github.io/HARPG-dex/",
-  description: `A tool for organizing small ARPGs and species.`
+  description: `A collection of mvseratii's ever-growing hoard of horses.`
 }
 
 /* ==================================================================== */
@@ -38,6 +38,7 @@ charadex.sheet = {
     prompts:       "prompts",
     faq:           "faq",
     staff:         "mods",
+    imageGallery:  "image gallery",
   },
 
   options: {
@@ -253,6 +254,50 @@ charadex.page.staff = {
 
 };
 
+/* Image Gallery
+/* --------------------------------------------------------------- */
+charadex.page.imageGallery = {
+
+  sheetPage: charadex.sheet.pages.imageGallery,
+  sitePage: 'gallery',
+  dexSelector: 'charadex',
+  profileProperty: 'id',
+
+  sort: {
+    toggle: true,
+    key: "id",
+    order: "asc",
+    parameters: []
+  },
+
+  pagination: {
+    toggle: true,
+    bottomToggle: true,
+    amount: 12,
+  },
+
+  filters: {
+    toggle: false,
+    parameters: {}
+  },
+
+  fauxFolder: {
+    toggle: false,
+    folderProperty: '',
+    parameters: [],
+  },
+
+  search: {
+    toggle: true,
+    filterToggle: true,
+    parameters: ['All', 'Designs', 'Artist']
+  },
+
+  prevNext: {
+    toggle: false,
+  },
+
+};
 
 /* FAQ
 /* --------------------------------------------------------------- */
@@ -447,6 +492,30 @@ charadex.page.inventory = {
 
     },
     
+     [charadex.sheet.pages.imageGallery]: {
+
+    ... charadex.page.imageGallery,
+
+    sheetPage: charadex.sheet.pages.imageGallery,
+    primaryProperty: 'design',
+    relatedProperty: 'designs',
+    dexSelector: 'gallery',
+    profileProperty: 'id',
+    profileToggle: false,
+
+    sort: {
+      toggle: true,
+      key: "id",
+      order: "asc",
+      parameters: []
+    },
+
+    pagination: {
+      toggle: true,
+      bottomToggle: true,
+      amount: 12,
+    },
+  },
 
     [charadex.sheet.pages.masterlist]: {
 
